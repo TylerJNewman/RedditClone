@@ -4,9 +4,8 @@ class CreateSubs < ActiveRecord::Migration
       t.string :title, null: false
       t.string :description, null: false
       t.integer :moderator_id, null: false
-
       t.timestamps null: false
     end
-    add_index :subs, :moderator_id
+
   end
 end

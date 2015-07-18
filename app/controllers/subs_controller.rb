@@ -1,4 +1,13 @@
 class SubsController < ApplicationController
+  before_action :moderator_check, only: [:update, :edit]
+
+  def moderator_check
+    @sub = Sub.find_by(params[:id])
+    if !@sub.moderator == current_user
+      redirect_to sub_url(:id)
+    end
+  end
+
   def index
     render :index
   end

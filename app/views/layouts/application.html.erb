@@ -8,17 +8,11 @@
 </head>
 <body>
 
-<% if current_user%>
-  <%= button_to( "Sign out", session_url, method: :delete)  %>
-<% elsif @sign  %>
-  <%= button_to "Sign Up", new_user_url, method: :get   %>
-<% else  %>
-  <%= button_to "Sign in", new_session_url, method: :get   %>
-<% end %>
-
 <% if flash[:errors] %>
   <%= flash[:errors] %>
 <% end %>
+
+<%= render "shared/session_header" %>
 
 
 <%= yield %>

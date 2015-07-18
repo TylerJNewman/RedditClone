@@ -1,0 +1,7 @@
+<% if current_user %>
+<%= button_to( "Sign out", session_url, method: :delete)  %>
+<% elsif params[:controller] == "sessions" %>
+<%= button_to "Sign Up", new_user_url, method: :get   %>
+<% elsif params[:controller] == "users" %>
+<%= button_to "Sign in", new_session_url, method: :get   %>
+<% end %>
